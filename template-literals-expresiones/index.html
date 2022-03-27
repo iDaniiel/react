@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Literals expresiones</title>
+</head>
+<body>
+    <script>
+        function taggedTemplate(strings, ...dynamicValues){
+           let newContent = '';
+            strings.forEach((element,index) => {
+                let strong = ''
+                if(dynamicValues[index]){
+                    strong = `<strong>${dynamicValues[index]}</strong>` 
+                }
+                
+                newContent += `${element} ${strong}`;
+            });
+
+            return `<p>${newContent}</p>`;
+        }
+
+        const mensaje = taggedTemplate`El ${'trabajo duro'} supera al ${'talento natural'}`;
+        document.body.innerHTML =  mensaje;
+    </script>
+</body>
+</html>
